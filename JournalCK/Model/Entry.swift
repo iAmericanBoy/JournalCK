@@ -22,12 +22,11 @@ class Entry {
     
     init?(record: CKRecord) {
         guard let title = record[Entry.titleKey] as? String,
-        let body = record[Entry.bodyKey] as? String,
-            let uuid = record[Entry.recordIDkey] as? CKRecord.ID else {return nil}
+        let body = record[Entry.bodyKey] as? String else {return nil}
         
         self.title = title
         self.bodyText = body
-        self.ckRecordID = uuid
+        self.ckRecordID = record.recordID
     }
 }
 
@@ -40,11 +39,9 @@ extension Entry {
 
 extension CKRecord {
     convenience init(entry: Entry) {
-        self.init(recordType: Entry.entryKey)
-
+        self.init(recordType: Entry.entryKey, recordID: entry.ckRecordID)
         self.setValue(entry.title, forKey: Entry.titleKey)
         self.setValue(entry.bodyText, forKey: Entry.bodyKey)
-        self.setValue(entry.ckRecordID, forKey: Entry.recordIDkey)
     }
 }
 

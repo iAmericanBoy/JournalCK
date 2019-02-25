@@ -15,6 +15,7 @@
 		B618853E222487A200A7950D /* Entry.swift in Sources */ = {isa = PBXBuildFile; fileRef = B618853D222487A200A7950D /* Entry.swift */; };
 		B618854122248D7C00A7950D /* EntryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B618854022248D7C00A7950D /* EntryController.swift */; };
 		B618854422249EA000A7950D /* EntryListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B618854322249EA000A7950D /* EntryListTableViewController.swift */; };
+		B61885462224A18100A7950D /* EntryDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B61885452224A18100A7950D /* EntryDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +30,7 @@
 		B618853D222487A200A7950D /* Entry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Entry.swift; sourceTree = "<group>"; };
 		B618854022248D7C00A7950D /* EntryController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryController.swift; sourceTree = "<group>"; };
 		B618854322249EA000A7950D /* EntryListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryListTableViewController.swift; sourceTree = "<group>"; };
+		B61885452224A18100A7950D /* EntryDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryDetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +114,7 @@
 			children = (
 				B618854022248D7C00A7950D /* EntryController.swift */,
 				B618854322249EA000A7950D /* EntryListTableViewController.swift */,
+				B61885452224A18100A7950D /* EntryDetailViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -198,6 +201,7 @@
 				B618854122248D7C00A7950D /* EntryController.swift in Sources */,
 				B618853E222487A200A7950D /* Entry.swift in Sources */,
 				B618854422249EA000A7950D /* EntryListTableViewController.swift in Sources */,
+				B61885462224A18100A7950D /* EntryDetailViewController.swift in Sources */,
 				B61885262224868500A7950D /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

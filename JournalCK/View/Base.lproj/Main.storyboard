@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -42,12 +43,69 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Root View Controller" id="zjx-NW-eXZ">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="EWg-9o-yeA"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="EWg-9o-yeA">
+                            <connections>
+                                <segue destination="A0p-Re-CIq" kind="show" id="iR1-Q2-8BN"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zs1-kw-HCq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="225" y="36"/>
+        </scene>
+        <!--new Entry-->
+        <scene sceneID="DgD-fi-dqo">
+            <objects>
+                <viewController id="A0p-Re-CIq" customClass="EntryDetailViewController" customModule="JournalCK" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="pWc-Ph-gYb">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="18" translatesAutoresizingMaskIntoConstraints="NO" id="6o3-Wz-Otc">
+                                <rect key="frame" x="10" y="74" width="355" height="539"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Title here:" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Po1-eP-Vzn">
+                                        <rect key="frame" x="0.0" y="0.0" width="355" height="30"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" horizontalHuggingPriority="249" verticalHuggingPriority="249" text="Enter Body Text..." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="fSR-Li-y7E">
+                                        <rect key="frame" x="0.0" y="48" width="355" height="491"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="6o3-Wz-Otc" firstAttribute="top" secondItem="jEb-ZU-REb" secondAttribute="top" constant="10" id="2ke-wB-bBx"/>
+                            <constraint firstItem="jEb-ZU-REb" firstAttribute="trailing" secondItem="6o3-Wz-Otc" secondAttribute="trailing" constant="10" id="DF7-rv-Efn"/>
+                            <constraint firstItem="6o3-Wz-Otc" firstAttribute="leading" secondItem="jEb-ZU-REb" secondAttribute="leading" constant="10" id="bzO-Mz-v5X"/>
+                            <constraint firstItem="jEb-ZU-REb" firstAttribute="bottom" secondItem="6o3-Wz-Otc" secondAttribute="bottom" constant="10" id="xU2-pv-r57"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="jEb-ZU-REb"/>
+                    </view>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="new Entry" id="QvD-3H-mOM">
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="IZv-Lp-7vg">
+                            <connections>
+                                <action selector="saveButtonTapped:" destination="A0p-Re-CIq" id="xtY-Ek-Lte"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="bodyTextField" destination="fSR-Li-y7E" id="uVt-fb-npG"/>
+                        <outlet property="titleTextField" destination="Po1-eP-Vzn" id="QQu-XR-8aV"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pBm-ZM-PT6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1260" y="36"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="ixC-Ox-IWi">
