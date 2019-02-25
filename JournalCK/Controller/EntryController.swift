@@ -52,7 +52,30 @@ class EntryController {
         }
     }
     
-
+    func delete(entry: Entry, completion: @escaping (Bool) -> Void) {
+        let modifyOperation = CKModifyRecordsOperation(recordsToSave: nil, recordIDsToDelete: [entry.ckRecordID])
+        
+        modifyOperation.modifyRecordsCompletionBlock = { records, _, error in
+            if let error = error {
+                print("Error deleteing record from private Database: \(error): \(error.localizedDescription)")
+                completion(false)
+                return
+            }
+            guard let records = records else {
+                completion(false)
+                return
+            }
+            let entriesToDelete = records.compactMap({ (record) -> Entry? in
+                return Entry(record: record)
+            })
+            entriesToDelete.forEach({ (entryToDelete) in
+                guard let index = self.entries.index(of: entryToDelete) else {completion(false); return}
+                self.entries.remove(at: index)
+            })
+            
+            CKContainer.default().privateCloudDatabase.add(modifyOperation)
+        }
+    }
     
     //MARK: - save
     func save(entry: Entry, completion:@escaping (Bool) -> Void) {
