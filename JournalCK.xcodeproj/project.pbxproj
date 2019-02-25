@@ -14,6 +14,7 @@
 		B618853C222486EE00A7950D /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B618853B222486EE00A7950D /* CloudKit.framework */; };
 		B618853E222487A200A7950D /* Entry.swift in Sources */ = {isa = PBXBuildFile; fileRef = B618853D222487A200A7950D /* Entry.swift */; };
 		B618854122248D7C00A7950D /* EntryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B618854022248D7C00A7950D /* EntryController.swift */; };
+		B618854422249EA000A7950D /* EntryListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B618854322249EA000A7950D /* EntryListTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +28,7 @@
 		B618853B222486EE00A7950D /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		B618853D222487A200A7950D /* Entry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Entry.swift; sourceTree = "<group>"; };
 		B618854022248D7C00A7950D /* EntryController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryController.swift; sourceTree = "<group>"; };
+		B618854322249EA000A7950D /* EntryListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryListTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +111,7 @@
 			isa = PBXGroup;
 			children = (
 				B618854022248D7C00A7950D /* EntryController.swift */,
+				B618854322249EA000A7950D /* EntryListTableViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -194,6 +197,7 @@
 			files = (
 				B618854122248D7C00A7950D /* EntryController.swift in Sources */,
 				B618853E222487A200A7950D /* Entry.swift in Sources */,
+				B618854422249EA000A7950D /* EntryListTableViewController.swift in Sources */,
 				B61885262224868500A7950D /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
