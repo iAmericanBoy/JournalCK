@@ -43,8 +43,7 @@ class EntryListTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            guard let index = tableView.indexPathForSelectedRow else {return}
-            let entry = EntryController.shared.entries[index.row]
+            let entry = EntryController.shared.entries[indexPath.row]
             EntryController.shared.delete(entry: entry) { (success) in
                 DispatchQueue.main.async {
                     self.tableView.deleteRows(at: [indexPath], with: .fade)
