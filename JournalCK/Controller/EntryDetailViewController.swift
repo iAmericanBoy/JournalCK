@@ -33,8 +33,13 @@ class EntryDetailViewController: UIViewController {
         
         if let entry = entry {
             //update
-            self.navigationController?.popViewController(animated: true)
-
+            EntryController.shared.update(entry: entry, title: title, bodyText: body) { (success) in
+                if success {
+                    DispatchQueue.main.async {
+                        self.navigationController?.popViewController(animated: true)
+                    }
+                }
+            }
         } else {
             //new Entry
             EntryController.shared.createEntryWith(title: title, bodyText: body) { (success) in

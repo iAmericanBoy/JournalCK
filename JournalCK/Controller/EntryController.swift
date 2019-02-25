@@ -51,11 +51,37 @@ class EntryController {
             completion(true)
         }
     }
+    func update(entry: Entry, title: String, bodyText: String, completion: @escaping (Bool) -> Void) {
+        entry.title = title
+        entry.bodyText = bodyText
+        let record = CKRecord(entry: entry)
+        
+        let updateOperation = CKModifyRecordsOperation(recordsToSave: [record], recordIDsToDelete: nil)
+        updateOperation.savePolicy = .changedKeys
+        updateOperation.modifyRecordsCompletionBlock = { (records,_,error) in
+            if let error = error {
+                print("Error updating record from private Database: \(error): \(error.localizedDescription)")
+                completion(false)
+                return
+            }
+            
+            guard let record = records?.first else {completion(false);return}
+            
+            guard let updatedEntry = Entry(record: record) else {completion(false);return}
+            guard let index = self.entries.index(of: entry) else {completion(false); return}
+            
+            self.entries.remove(at: index)
+            self.entries.insert(updatedEntry, at: index)
+            completion(true)
+        }
+        
+        CKContainer.default().privateCloudDatabase.add(updateOperation)
+    }
     
     func delete(entry: Entry, completion: @escaping (Bool) -> Void) {
         CKContainer.default().privateCloudDatabase.delete(withRecordID: entry.ckRecordID) { (_, error) in
             if let error = error {
-                print("Error deleteing record from private Database: \(error): \(error.localizedDescription)")
+                print("Error deleting record from private Database: \(error): \(error.localizedDescription)")
                 completion(false)
                 return
             }

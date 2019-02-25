@@ -10,8 +10,8 @@ import Foundation
 import CloudKit
 
 class Entry {
-    let title: String
-    let bodyText: String
+    var title: String
+    var bodyText: String
     let ckRecordID: CKRecord.ID
     
     init(title: String, bodyText: String) {
