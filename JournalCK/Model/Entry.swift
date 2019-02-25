@@ -35,7 +35,7 @@ extension Entry {
     fileprivate static let titleKey = "Title"
     fileprivate static let bodyKey = "Body"
     fileprivate static let recordIDkey = "ID"
-    fileprivate static let entryKey = "Entry"
+    static let entryKey = "Entry"
 }
 
 extension CKRecord {
