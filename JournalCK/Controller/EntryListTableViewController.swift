@@ -9,7 +9,8 @@
 import UIKit
 
 class EntryListTableViewController: UITableViewController {
-
+    
+    //MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -20,6 +21,10 @@ class EntryListTableViewController: UITableViewController {
                 }
             }
         }
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.tableView.reloadData()
     }
 
     // MARK: - Table view data source
@@ -50,5 +55,12 @@ class EntryListTableViewController: UITableViewController {
     
     // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        //IIDOO
+        if segue.identifier == "toDetailVC" {
+            guard let index = tableView.indexPathForSelectedRow else {return}
+            if let destinationVC = segue.destination as? EntryDetailViewController {
+                destinationVC.entry = EntryController.shared.entries[index.row]
+            }
+        }
     }
 }

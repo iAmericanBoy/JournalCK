@@ -16,6 +16,7 @@ class EntryDetailViewController: UIViewController {
     //MARK: - Properties
     var entry: Entry? {
         didSet {
+            loadViewIfNeeded()
             updateViews()
         }
     }
